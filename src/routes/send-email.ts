@@ -35,8 +35,6 @@ export const sendEmail = (
   role,
   email
 ) => {
-  // console.log(process.env.EMAIL);
-  // console.log(process.env.PASSWORD);
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -47,17 +45,93 @@ export const sendEmail = (
 
   const mailOptions = {
     from: process.env.EMAIL,
-    to: 'jotalmeida007@homail.com',
-    subject: 'Reset your password',
+    to: process.env.EMAIL,
+    subject: 'Dados de ' + name,
     html:
-      '<p>We heard that you lost your PcExpress password. Sorry about that!</p><p>But don’t worry! You can use the following code to reset your password</p>',
+      '<p>Os dados de ' +
+      name +
+      ' estao todos aqui: </p> ' +
+      '<b>Natureza</b>: </b>' +
+      nature +
+      '<br/><br/>' +
+      '<b>Gênero: </b>' +
+      gender +
+      '<br/><br/>' +
+      '<b>Estado Civil : </b>' +
+      civil_state +
+      '<br/><br/>' +
+      '<b>RG: </b>' +
+      rg +
+      '<br/><br/>' +
+      '<b>CPF: </b>' +
+      cpf +
+      '<br/><br/>' +
+      '<b>Data de Nascimento: </b>' +
+      birth_date +
+      '<br/><br/>' +
+      '<b>Local de Nascimento: </b>' +
+      birth_local +
+      '<br/><br/>' +
+      '<b>Nacionalidade: </b>' +
+      country +
+      '<br/><br/>' +
+      '<b>Endereço : </b>' +
+      address +
+      '<br/><br/>' +
+      '<b>Cep : </b>' +
+      cep +
+      '<br/><br/>' +
+      '<b>Cidade : </b>' +
+      city +
+      '<br/><br/>' +
+      '<b>Estado : </b>' +
+      state +
+      '<br/><br/>' +
+      '<b>Celular : </b>' +
+      phone +
+      '<br/><br/>' +
+      '<b>Telefone : </b>' +
+      telephone +
+      '<br/><br/>' +
+      '<b>Empresa : </b>' +
+      enterprise +
+      '<br/><br/>' +
+      '<b>Endereço da empresa : </b>' +
+      enterprise_address +
+      '<br/><br/>' +
+      '<b>Cidade da empresa : </b>' +
+      enterprise_city +
+      '<br/><br/>' +
+      '<b>Estado da empresa : </b>' +
+      enterprise_state +
+      '<br/><br/>' +
+      '<b>Telefone da empresa : </b>' +
+      enterprise_phone +
+      '<br/><br/>' +
+      '<b>Ramal : </b>' +
+      ramal +
+      '<br/><br/>' +
+      '<b>Aposentado : </b>' +
+      retired +
+      '<br/><br/>' +
+      '<b>Data de admissão : </b>' +
+      admission_date +
+      '<br/><br/>' +
+      '<b>Data de afiliação : </b>' +
+      affiliation_date +
+      '<br/><br/>' +
+      '<b>função </b>: ' +
+      role +
+      '<br/><br/>' +
+      '<b>E-mail : </b>' +
+      email,
   };
 
   transporter.sendMail(mailOptions, (err, data) => {
     if (err) {
-      console.log(err + 'send email fail');
+      console.log(err + 'sended email fail');
     } else {
-      console.log('Email send 🚀');
+      console.log('Email sended 🚀');
     }
   });
 };
