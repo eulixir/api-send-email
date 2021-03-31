@@ -1,3 +1,30 @@
-export const sendEmail = (text) => {
-  console.log(text);
+export const sendEmail = (
+  nature,
+  name,
+  gender,
+  civil_state,
+  rg,
+  cpf,
+  birth_date,
+  birth_local,
+  country,
+  address,
+  cep,
+  city,
+  state,
+  phone,
+  telephone,
+  enterprise,
+  enterprise_address,
+  enterprise_city,
+  enterprise_state,
+  enterprise_phone,
+  ramal,
+  retired,
+  admission_date,
+  affiliation_date,
+  role,
+  email
+) => {
+  console.log(enterprise_state);
 };
