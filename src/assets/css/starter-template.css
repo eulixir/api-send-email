@@ -1,0 +1,35 @@
+body {
+}
+
+.jumbotron {
+  padding-top: 5rem;
+
+}
+
+.display-4 {
+  text-align: center;
+}
+
+.display-6 {
+  padding-top: 2rem;
+  text-align: center;
+  padding-bottom: 5rem;
+
+}
+
+.navbar-collapse { 
+  background-color: #2274A5;
+  font-size: 1.6rem;
+}
+
+li { 
+  margin: 0 0 0 3em;
+}
+
+.logo { 
+  height: 300px;
+  width: 600px;
+  margin-left: 628px;
+
+  
+}
