@@ -1,3 +1,12 @@
+import nodemailer from 'nodemailer';
+import * as dotenv from 'dotenv';
+
+require('dotenv').config();
+
+export interface ProcessEnv {
+  [key: string]: string | undefined;
+}
+
 export const sendEmail = (
   nature,
   name,
@@ -26,5 +35,29 @@ export const sendEmail = (
   role,
   email
 ) => {
-  console.log(enterprise_state);
+  // console.log(process.env.EMAIL);
+  // console.log(process.env.PASSWORD);
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.EMAIL,
+    to: 'jotalmeida007@homail.com',
+    subject: 'Reset your password',
+    html:
+      '<p>We heard that you lost your PcExpress password. Sorry about that!</p><p>But don’t worry! You can use the following code to reset your password</p>',
+  };
+
+  transporter.sendMail(mailOptions, (err, data) => {
+    if (err) {
+      console.log(err + 'send email fail');
+    } else {
+      console.log('Email send 🚀');
+    }
+  });
 };
